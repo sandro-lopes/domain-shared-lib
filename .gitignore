@@ -97,8 +97,9 @@ replay_pid*
 HELP.md
 .spring-boot-devtools.restart.trigger
 
-# JFrog Artifactory
-.jfrog/
+# GitHub related
+.github/token
+.github/credentials
 
 # Test reports
 /test-output/

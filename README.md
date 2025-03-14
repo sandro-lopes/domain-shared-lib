@@ -29,17 +29,33 @@ To use this library in your project, add the following dependency to your `pom.x
 </dependency>
 ```
 
-And add the JFrog Artifactory repository:
+And add the GitHub Packages repository:
 
 ```xml
 <repositories>
     <repository>
-        <id>jfrog-snapshots</id>
-        <name>JFrog Artifactory Snapshots</name>
-        <url>https://[your-jfrog-server]/artifactory/libs-snapshot</url>
+        <id>github</id>
+        <name>GitHub Packages</name>
+        <url>https://maven.pkg.github.com/YOUR_USERNAME/domain-shared-lib</url>
     </repository>
 </repositories>
 ```
+
+You'll also need to add authentication to your Maven settings file (`~/.m2/settings.xml`):
+
+```xml
+<settings>
+  <servers>
+    <server>
+      <id>github</id>
+      <username>YOUR_GITHUB_USERNAME</username>
+      <password>YOUR_GITHUB_TOKEN</password>
+    </server>
+  </servers>
+</settings>
+```
+
+Note: For the GitHub token, you need to create a personal access token with the `read:packages` scope for consuming packages, or `write:packages` scope for publishing packages.
 
 ## Main Components
 
@@ -158,31 +174,82 @@ The tests cover:
 - Aggregates
 - Pagination
 
-## Publishing to JFrog Artifactory
+## Publishing to GitHub Packages
 
-To publish this library to JFrog Artifactory, configure your credentials in the `~/.m2/settings.xml` file:
+To publish this library to GitHub Packages, follow these steps:
+
+1. Configure your Maven `pom.xml` file to include the GitHub Packages repository:
+
+```xml
+<distributionManagement>
+    <repository>
+        <id>github</id>
+        <name>GitHub Packages</name>
+        <url>https://maven.pkg.github.com/YOUR_USERNAME/domain-shared-lib</url>
+    </repository>
+</distributionManagement>
+```
+
+2. Configure authentication in your Maven settings file (`~/.m2/settings.xml`):
 
 ```xml
 <settings>
-    <servers>
-        <server>
-            <id>jfrog-snapshots</id>
-            <username>your-username</username>
-            <password>your-password</password>
-        </server>
-        <server>
-            <id>jfrog-releases</id>
-            <username>your-username</username>
-            <password>your-password</password>
-        </server>
-    </servers>
+  <servers>
+    <server>
+      <id>github</id>
+      <username>YOUR_GITHUB_USERNAME</username>
+      <password>YOUR_GITHUB_TOKEN</password>
+    </server>
+  </servers>
 </settings>
 ```
 
-And run the command:
+3. Create a GitHub personal access token with the `write:packages` scope.
+
+4. Run the deploy command:
 
 ```bash
 mvn clean deploy
+```
+
+### Consuming the Library from GitHub Packages
+
+To use this library in another project:
+
+1. Add the GitHub Packages repository to your project's `pom.xml`:
+
+```xml
+<repositories>
+    <repository>
+        <id>github</id>
+        <name>GitHub Packages</name>
+        <url>https://maven.pkg.github.com/YOUR_USERNAME/domain-shared-lib</url>
+    </repository>
+</repositories>
+```
+
+2. Configure authentication in your Maven settings file (`~/.m2/settings.xml`):
+
+```xml
+<settings>
+  <servers>
+    <server>
+      <id>github</id>
+      <username>YOUR_GITHUB_USERNAME</username>
+      <password>YOUR_GITHUB_TOKEN</password>
+    </server>
+  </servers>
+</settings>
+```
+
+3. Add the dependency to your project:
+
+```xml
+<dependency>
+    <groupId>com.codingbetter</groupId>
+    <artifactId>domain-shared-lib</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+</dependency>
 ```
 
 ## Components
