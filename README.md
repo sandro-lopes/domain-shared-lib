@@ -2,6 +2,25 @@
 
 Shared domain components library for Java projects based on Domain-Driven Design (DDD).
 
+## Table of Contents
+
+- [Description](#description)
+- [Requirements](#requirements)
+- [Usage](#usage)
+- [Main Components](#main-components)
+  - [Domain Events](#domain-events)
+  - [Domain Models](#domain-models)
+  - [Pagination](#pagination)
+    - [Mapping Between Architectural Layers](#mapping-between-architectural-layers)
+- [Tests](#tests)
+- [Publishing to GitHub Packages](#publishing-to-github-packages)
+  - [Consuming the Library](#consuming-the-library-from-github-packages)
+- [Components](#components)
+  - [Domain Events and Aggregates](#domain-events-and-aggregates)
+    - [Creating and Publishing Domain Events](#creating-and-publishing-domain-events)
+    - [Event Flow](#event-flow)
+- [License](#license)
+
 ## Description
 
 This library provides basic implementations of DDD concepts, such as:
