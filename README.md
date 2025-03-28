@@ -7,6 +7,7 @@ Shared domain components library for Java projects based on Domain-Driven Design
 - [Description](#description)
 - [Requirements](#requirements)
 - [Usage](#usage)
+  - [Creating a GitHub Personal Access Token](#creating-a-github-personal-access-token)
 - [Main Components](#main-components)
   - [Domain Events](#domain-events)
   - [Domain Models](#domain-models)
@@ -75,6 +76,36 @@ You'll also need to add authentication to your Maven settings file (`~/.m2/setti
 ```
 
 Note: For the GitHub token, you need to create a personal access token with the `read:packages` scope for consuming packages, or `write:packages` scope for publishing packages.
+
+### Creating a GitHub Personal Access Token
+
+Follow these steps to create a GitHub personal access token:
+
+1. **Log in to GitHub**: Go to [github.com](https://github.com) and log in to your account.
+
+2. **Access Settings**: Click on your profile photo in the top-right corner, then select "Settings" from the dropdown menu.
+
+3. **Developer Settings**: Scroll down to the bottom of the sidebar and click on "Developer settings".
+
+4. **Personal Access Tokens**: In the left sidebar, click on "Personal access tokens", then select "Tokens (classic)".
+
+5. **Generate New Token**: Click the "Generate new token" button, then select "Generate new token (classic)".
+
+6. **Token Description**: Enter a descriptive name for your token (e.g., "Maven GitHub Packages").
+
+7. **Set Expiration**: Choose an expiration period for your token or select "No expiration" (not recommended for security reasons).
+
+8. **Select Scopes**:
+   - For **consuming packages** only: select the `read:packages` scope.
+   - For **publishing packages**: select both `read:packages` and `write:packages` scopes.
+
+9. **Generate Token**: Scroll to the bottom of the page and click "Generate token".
+
+10. **Copy Token**: GitHub will display your new personal access token only once. Make sure to copy it immediately and store it securely.
+
+11. **Use Token**: Use this token as your password in your Maven settings file as shown above.
+
+> **Important**: Treat your tokens like passwords. Keep them secret and never hardcode them in your source files.
 
 ## Main Components
 

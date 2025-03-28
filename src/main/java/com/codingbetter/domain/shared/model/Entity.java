@@ -7,7 +7,7 @@ package com.codingbetter.domain.shared.model;
  *
  * @param <ID> O tipo do identificador da entidade
  */
-public interface Entity<ID> {
+public interface Entity<ID extends Identity> {
     
     /**
      * Retorna o identificador único da entidade.

@@ -81,28 +81,10 @@
     
     <distributionManagement>
         <repository>
-            <id>jfrog-releases</id>
-            <name>JFrog Artifactory Releases</name>
-            <url>https://[seu-servidor-jfrog]/artifactory/libs-release-local</url>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/sandro-lopes/domain-shared-lib</url>
         </repository>
-        <snapshotRepository>
-            <id>jfrog-snapshots</id>
-            <name>JFrog Artifactory Snapshots</name>
-            <url>https://[seu-servidor-jfrog]/artifactory/libs-snapshot-local</url>
-        </snapshotRepository>
     </distributionManagement>
-    
-    <repositories>
-        <repository>
-            <id>jfrog-releases</id>
-            <name>JFrog Artifactory Releases</name>
-            <url>https://[seu-servidor-jfrog]/artifactory/libs-release</url>
-        </repository>
-        <repository>
-            <id>jfrog-snapshots</id>
-            <name>JFrog Artifactory Snapshots</name>
-            <url>https://[seu-servidor-jfrog]/artifactory/libs-snapshot</url>
-        </repository>
-    </repositories>
     
 </project> 
